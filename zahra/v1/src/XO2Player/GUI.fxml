@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="XO2Player.XO2PlayerController">
+   <children>
+      <SplitPane layoutX="164.0" layoutY="4.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <SplitPane layoutX="6.0" prefHeight="75.0" prefWidth="298.0" AnchorPane.bottomAnchor="322.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="123.0" prefWidth="205.0">
+                           <children>
+                              <Label fx:id="label" alignment="CENTER" layoutX="74.0" layoutY="16.0" prefHeight="73.0" prefWidth="296.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+                  <Label fx:id="img0" alignment="CENTER" layoutX="11.0" layoutY="86.0" onMouseClicked="#printImg" prefHeight="75.0" prefWidth="85.0" styleClass="hoverImgsField" stylesheets="@Styling.css" />
+                  <Label fx:id="img1" alignment="CENTER" layoutX="107.0" layoutY="86.0" onMouseClicked="#printImg" prefHeight="75.0" prefWidth="85.0" styleClass="hoverImgsField" stylesheets="@Styling.css" />
+                  <Label fx:id="img2" alignment="CENTER" layoutX="199.0" layoutY="86.0" onMouseClicked="#printImg" prefHeight="75.0" prefWidth="85.0" styleClass="hoverImgsField" stylesheets="@Styling.css" />
+                  <Label fx:id="img3" alignment="CENTER" layoutX="14.0" layoutY="180.0" onMouseClicked="#printImg" prefHeight="75.0" prefWidth="85.0" styleClass="hoverImgsField" stylesheets="@Styling.css" />
+                  <Label fx:id="img4" alignment="CENTER" layoutX="107.0" layoutY="180.0" onMouseClicked="#printImg" prefHeight="75.0" prefWidth="85.0" styleClass="hoverImgsField" stylesheets="@Styling.css" />
+                  <Label fx:id="img5" alignment="CENTER" layoutX="199.0" layoutY="180.0" onMouseClicked="#printImg" prefHeight="75.0" prefWidth="85.0" styleClass="hoverImgsField" stylesheets="@Styling.css" />
+                  <Label fx:id="img6" alignment="CENTER" layoutX="14.0" layoutY="281.0" onMouseClicked="#printImg" prefHeight="75.0" prefWidth="85.0" styleClass="hoverImgsField" stylesheets="@Styling.css" />
+                  <Label fx:id="img7" alignment="CENTER" layoutX="107.0" layoutY="281.0" onMouseClicked="#printImg" prefHeight="75.0" prefWidth="85.0" styleClass="hoverImgsField" stylesheets="@Styling.css" />
+                  <Label fx:id="img8" alignment="CENTER" layoutX="199.0" layoutY="281.0" onMouseClicked="#printImg" prefHeight="75.0" prefWidth="85.0" styleClass="hoverImgsField" stylesheets="@Styling.css" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
