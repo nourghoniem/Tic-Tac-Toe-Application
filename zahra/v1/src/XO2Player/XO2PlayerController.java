@@ -1,12 +1,18 @@
 
 package XO2Player;
 
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
 public class XO2PlayerController {
     public Label label;
-  
+    public Button start;
   public Label img0;
   
   public Label img1;
@@ -26,11 +32,20 @@ public class XO2PlayerController {
   public Label img8;
   
   public String turn = new String("X");
-  
   public String winner;
+  public int rowsNum = 3;
+  
+  ArrayList<ArrayList<Label>>arr = new ArrayList<>(rowsNum) ;
+
+  
+  public void StartPlaying(ActionEvent event) {
+
+     arr.add(new ArrayList<>(Arrays.asList(img0, img1, img2)));
+     arr.add(new ArrayList<>(Arrays.asList(img3, img4, img5)));
+     arr.add(new ArrayList<>(Arrays.asList(img6, img7, img8)));
+}
   
   public void printImg(MouseEvent mouseEvent) {
-
     Object clickedLabel = mouseEvent.getSource();
 
     if (((Label)clickedLabel).getText() == "") {
@@ -83,10 +98,21 @@ public class XO2PlayerController {
       if (line.equals("OOO"))
         return "O"; 
     } 
-    if (this.img0.getText() != "" && this.img1.getText() != "" && this.img2.getText() != "" && this.img3.getText() != "" && 
-        this.img4.getText() != "" && this.img5.getText() != "" && this.img6.getText() != "" && this.img7.getText() != "" && 
-        this.img8.getText() != "")
-      return "-1"; 
+
+    for(int i =0; i<3; i++)
+    {  
+       int flag = 0;
+       for(int j=0; j<3; j++)
+       {
+          if(arr.get(i).get(j).getText()=="")
+          {
+            flag =1;
+            break;
+          }
+       }
+       if(flag == 1){break;}
+       else if(i == 2){return "-1";}
+    }
     return null;
   }
 }
