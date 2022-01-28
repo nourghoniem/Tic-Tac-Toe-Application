@@ -56,6 +56,7 @@ public class Players extends Application {
                            
                              while(get_message != null){
                              output.print(get_message);
+                             
                              }
                   }
              }
