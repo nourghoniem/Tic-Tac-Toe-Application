@@ -32,21 +32,8 @@ public class ApplicationServer extends Application implements TicTacToeConstants
       Button start, stop;
       
       public ApplicationServer() throws IOException{
-        
-       }
-      @Override
-      public void start(Stage PrimaryStage){
-          stop.setOnAction(new EventHandler <ActionEvent>(){
-           public void handle(ActionEvent e){
-             try{
-             server_socket.close();
-             }catch(IOException s){s.printStackTrace();}
-           }
-         });
-          
-          start.setOnAction(new EventHandler <ActionEvent>(){
-           public void handle(ActionEvent e){
-              new Thread(()->{
+         new Thread(new Runnable(){
+                 public void run(){
                   try{
                     server_socket = new ServerSocket(9090);
                     while(true){
@@ -63,11 +50,34 @@ public class ApplicationServer extends Application implements TicTacToeConstants
                         new Thread(new PlayerHandler(player1, player2)).start();
                       }
                    }catch(IOException s){s.printStackTrace();}
+                  }    
                }).start(); 
-               }
-          });
+       }
+//      public void startServer(){
+//        
+//     }
+      @Override
+      public void start(Stage PrimaryStage){
+//         stop.setOnAction(new EventHandler <ActionEvent>(){
+//           public void handle(ActionEvent e){
+//             try{
+//             server_socket.close();
+//             }catch(IOException s){s.printStackTrace();}
+//           }
+//          });
+          
+//          start.setOnAction(new EventHandler <ActionEvent>(){
+//           public void handle(ActionEvent e){
+//                //startServer();
+////                 new Thread(new Runnable(){
+////                       public void run(){
+////                         startServer();
+////                        }
+////                }).start();
+//          
+//               }
+//          });
          
-        
           start = new Button("Start");
           stop = new Button("Stop");
           FlowPane pane = new FlowPane(start, stop);
