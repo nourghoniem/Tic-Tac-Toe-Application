@@ -15,5 +15,4 @@ public interface TicTacToeConstants {
     public static int PLAYER2_WON = 2;
     public static int DRAW = 3;
     public static int CONTINUE = 4;
-
 }

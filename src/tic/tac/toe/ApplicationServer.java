@@ -78,9 +78,6 @@ public class ApplicationServer extends Application implements TicTacToeConstants
       }
 
 
-
-
-
       public static void main(String[] args) throws IOException {
         //ApplicationServer server = new ApplicationServer();
          Application.launch(args);
