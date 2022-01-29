@@ -30,12 +30,17 @@ public class ApplicationServer extends Application implements TicTacToeConstants
       DataOutputStream out_p1;
       DataOutputStream out_p2;
       Button start, stop;
+     
       
       public ApplicationServer() throws IOException{
-         new Thread(new Runnable(){
+         
+       }
+     public void startServer(){
+        new Thread(new Runnable(){
                  public void run(){
                   try{
                     server_socket = new ServerSocket(9090);
+                    System.out.println("[SERVER] started waiting...");
                     while(true){
                         player1 = server_socket.accept();
                         System.out.println("[SERVER] Player 1 joined");
@@ -52,32 +57,9 @@ public class ApplicationServer extends Application implements TicTacToeConstants
                    }catch(IOException s){s.printStackTrace();}
                   }    
                }).start(); 
-       }
-//      public void startServer(){
-//        
-//     }
+      }
       @Override
       public void start(Stage PrimaryStage){
-//         stop.setOnAction(new EventHandler <ActionEvent>(){
-//           public void handle(ActionEvent e){
-//             try{
-//             server_socket.close();
-//             }catch(IOException s){s.printStackTrace();}
-//           }
-//          });
-          
-//          start.setOnAction(new EventHandler <ActionEvent>(){
-//           public void handle(ActionEvent e){
-//                //startServer();
-////                 new Thread(new Runnable(){
-////                       public void run(){
-////                         startServer();
-////                        }
-////                }).start();
-//          
-//               }
-//          });
-         
           start = new Button("Start");
           stop = new Button("Stop");
           FlowPane pane = new FlowPane(start, stop);
@@ -85,11 +67,31 @@ public class ApplicationServer extends Application implements TicTacToeConstants
           PrimaryStage.setScene(scene);
           PrimaryStage.setTitle("Tic Tac Toe Server");
           PrimaryStage.show();
+           stop.setOnAction(new EventHandler <ActionEvent>(){
+           public void handle(ActionEvent e){
+            
+             new Thread(new Runnable(){
+                public void run(){
+                   try{
+                      server_socket.close();
+                    }catch(Exception s){s.printStackTrace();}
+                }
+          }).start();
+         }
+        });
+        start.setOnAction(new EventHandler <ActionEvent>(){
+           public void handle(ActionEvent e){
+                new Thread(new Runnable(){
+                      public void run(){
+                        startServer();
+                       }
+                }).start();
+               }
+          });
       }
 
 
       public static void main(String[] args) throws IOException {
-        //ApplicationServer server = new ApplicationServer();
          Application.launch(args);
     }
 }
