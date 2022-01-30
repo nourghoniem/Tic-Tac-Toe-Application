@@ -1,12 +1,13 @@
 
 package TicTacToeClients;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Cell;
 import javafx.scene.control.Label;
@@ -40,21 +41,31 @@ public class TicTacToeClient extends Application implements TicTacToeConstants{
      private String host = "localhost";
      
      public void start(Stage primaryStage){
-     
-       GridPane pane = new GridPane();
-       for(int i=0; i<3; i++)
-           for(int j =0; j<3; j++)
-              pane.add(cell[i][j] = new Cell(i, j), j, i);
-        
-        BorderPane borderPane = new BorderPane();
-        borderPane.setTop(lblTitle);
-        borderPane.setCenter(pane);
-        borderPane.setBottom(lblStatus);
 
-        Scene scene = new Scene(borderPane, 320, 350);
-        primaryStage.setTitle("TicTacToeClient");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+       try{
+         Parent root = FXMLLoader.load(getClass().getResource("/TicTacToeClients/view/signUP.fxml"));
+         Scene scene = new Scene(root);
+         primaryStage.setScene(scene);
+         primaryStage.show();
+
+
+
+        }catch(Exception e){e.printStackTrace();}
+     
+//       GridPane pane = new GridPane();
+//       for(int i=0; i<3; i++)
+//           for(int j =0; j<3; j++)
+//              pane.add(cell[i][j] = new Cell(i, j), j, i);
+//        
+//        BorderPane borderPane = new BorderPane();
+//        borderPane.setTop(lblTitle);
+//        borderPane.setCenter(pane);
+//        borderPane.setBottom(lblStatus);
+//
+//        Scene scene = new Scene(borderPane, 320, 350);
+//        primaryStage.setTitle("TicTacToeClient");
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
         
         connectToServer();
 }

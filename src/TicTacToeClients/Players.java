@@ -9,27 +9,24 @@ package TicTacToeClients;
  * @author nghon
  */
 public class Players {
-    private int id;
+
     private String username;
     private String password;
     private String status;
     private String score;
 
-    public Players(int id, String username, String password, String status, String score) {
-        this.id = id;
+    public Players(String username, String password, String status, String score) {
         this.username = username;
         this.password = password;
         this.status = status;
         this.score = score;
     }
-
-    public int getId() {
-        return id;
+    public Players(String username, String password) {
+        this.username = username;
+        this.password = password;
+      
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    
 
     public String getUsername() {
         return username;

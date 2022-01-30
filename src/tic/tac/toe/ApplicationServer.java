@@ -43,10 +43,12 @@ public class ApplicationServer extends Application implements TicTacToeConstants
                     System.out.println("[SERVER] started waiting...");
                     while(true){
                         player1 = server_socket.accept();
+                        System.out.println(player1.getRemoteSocketAddress());
                         System.out.println("[SERVER] Player 1 joined");
                         out_p1 = new DataOutputStream(player1.getOutputStream());
                         out_p1.writeInt(PLAYER1);
                         player2 = server_socket.accept();
+                        System.out.println(player2.getRemoteSocketAddress());
                         System.out.println("[SERVER] Player 2 joined");
                         out_p2 = new DataOutputStream(player2.getOutputStream());
                         out_p2.writeInt(PLAYER2);

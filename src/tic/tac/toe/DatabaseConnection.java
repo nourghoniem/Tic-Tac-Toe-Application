@@ -7,6 +7,7 @@ package tic.tac.toe;
 import TicTacToeClients.Players;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,7 +21,6 @@ import java.util.List;
 public class DatabaseConnection {
     Connection conn;
     ArrayList<Players> players;
-    int id;
     String username;
     String password;
     String status;
@@ -42,19 +42,45 @@ public class DatabaseConnection {
       String queryString = new String("select * from players");
       ResultSet rs = s.executeQuery(queryString);
       while(rs.next()){
-      id = rs.getInt("id");
       username = rs.getString("username");
       password = rs.getString("password");
       status = rs.getString("status");
       score = rs.getString("score");
-      Players p = new Players(id, username, password, status, score);
+      Players p = new Players(username, password, status, score);
       players.add(p);
-      //System.out.print(username);
      }
        s.close();
        conn.commit();
      }catch(SQLException e){e.getMessage();}
      return players;
+   }
+   
+   public void insertPlayer(Players p){
+    try{ 
+     PreparedStatement pst= conn.prepareStatement("insert into players (username, password, status, score) values(?,?,?,?)");
+     pst.setString(1, p.getUsername());
+     pst.setString(2, p.getPassword());
+     pst.setString(3, "Offline");
+     pst.setString(4, null);
+     int rows  = pst.executeUpdate();
+     pst.close();
+     System.out.print(rows);
+    }catch(SQLException e){e.getMessage();}
+  }
+    
+   public boolean checkIfExists(String r_username, String r_password){
+     try{
+       Statement s = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+       String queryString = new String("select * from players");
+       ResultSet rs = s.executeQuery(queryString);
+       while(rs.next()){
+          username = rs.getString("username");
+          if(username.equals(r_username)){
+            return true;
+          } 
+       }
+     }catch(SQLException e){e.getMessage();}
+     return false;
    }
    public static void main(String[] args) {
         //ApplicationServer server = new ApplicationServer();
