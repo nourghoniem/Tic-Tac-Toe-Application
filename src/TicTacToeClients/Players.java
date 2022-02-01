@@ -14,19 +14,36 @@ public class Players {
     private String password;
     private String status;
     private String score;
-
+     
+    public Players() {
+        this.username = "";
+        this.password = "";
+        this.status = "";
+        this.score = "";
+    }
     public Players(String username, String password, String status, String score) {
         this.username = username;
         this.password = password;
         this.status = status;
         this.score = score;
     }
+
+    public static Players usernameStatus(String username, String status) {
+       //this.username = username;
+      final Players pl = new Players();
+      pl.username = username;
+      pl.status = status;
+      return pl;
+    }
+
     public Players(String username, String password) {
         this.username = username;
         this.password = password;
-      
     }
-    
+    public void setUsernameAndStatus(String username, String status) {
+        this.username = username;
+        this.status = status;
+    }
 
     public String getUsername() {
         return username;

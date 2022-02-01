@@ -68,7 +68,7 @@ public class DatabaseConnection {
     }catch(SQLException e){e.getMessage();}
   }
     
-   public boolean checkIfExists(String r_username, String r_password){
+   public boolean checkIfExists(String r_username){
      try{
        Statement s = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
        String queryString = new String("select * from players");
@@ -82,6 +82,22 @@ public class DatabaseConnection {
      }catch(SQLException e){e.getMessage();}
      return false;
    }
+   public boolean checkIfPlayerExists(String r_username, String r_password){
+     try{
+       Statement s = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+       String queryString = new String("select * from players");
+       ResultSet rs = s.executeQuery(queryString);
+       while(rs.next()){
+          username = rs.getString("username");
+          password = rs.getString("password");
+          if(username.equals(r_username) && password.equals(r_password)){
+            return true;
+          } 
+       }
+     }catch(SQLException e){e.getMessage();}
+     return false;
+   }
+
    public static void main(String[] args) {
         //ApplicationServer server = new ApplicationServer();
          DatabaseConnection database = new DatabaseConnection();
