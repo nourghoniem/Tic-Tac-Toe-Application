@@ -4,6 +4,10 @@
  */
 package TicTacToeClients;
 
+import javafx.scene.control.Button;
+
+
+
 /**
  *
  * @author nghon
@@ -14,6 +18,7 @@ public class Players {
     private String password;
     private String status;
     private String score;
+ 
      
     public Players() {
         this.username = "";
@@ -26,6 +31,7 @@ public class Players {
         this.password = password;
         this.status = status;
         this.score = score;
+      
     }
 
     public static Players usernameStatus(String username, String status) {
@@ -75,5 +81,6 @@ public class Players {
 
     public void setScore(String score) {
         this.score = score;
-    }  
+    } 
+ 
 }

@@ -43,11 +43,11 @@ public class TicTacToeClient extends Application implements TicTacToeConstants{
      public void start(Stage primaryStage){
 
        try{
-         Parent root = FXMLLoader.load(getClass().getResource("/TicTacToeClients/view/signUP.fxml"));
-         Scene scene = new Scene(root);
-         primaryStage.setScene(scene);
-         primaryStage.show();
-
+//         Parent root = FXMLLoader.load(getClass().getResource("/TicTacToeClients/view/signUP.fxml"));
+//         Scene scene = new Scene(root);
+//         primaryStage.setScene(scene);
+//         primaryStage.show();
+//
 
 
         }catch(Exception e){e.printStackTrace();}

@@ -36,6 +36,7 @@ public class SceneController {
      private Stage stage;
      private Scene scene;
      private Parent root;
+     private String my_username;
      DatabaseConnection data = new DatabaseConnection();
      List<Players> players = data.getPlayers();
     
@@ -54,9 +55,15 @@ public class SceneController {
      @FXML
      ObservableList<Players> players_data = FXCollections.observableArrayList();
 
-    
-     
-     public void switchToSignUp(ActionEvent event) throws IOException{
+    public String getMy_username() {
+        return my_username;
+    }
+
+    public void setMy_username(String my_username) {
+        this.my_username = my_username;
+    }
+   
+    public void switchToSignUp(ActionEvent event) throws IOException{
        root = FXMLLoader.load(getClass().getResource("signUP.fxml"));
        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
        scene = new Scene(root);
@@ -102,6 +109,7 @@ public class SceneController {
     public void checkSignIn(ActionEvent event) throws IOException{
          String usernames = username_in.getText();
          String passwords = password_in.getText();
+         this.setMy_username(usernames);
          if(usernames.isEmpty()){
             System.out.println("Please enter your username"); 
          }
@@ -121,8 +129,18 @@ public class SceneController {
          else{
             System.out.println("User does not exist"); 
           }
+           //System.out.println("hhbhbgv"+this.getMy_username());   
      }
-
+    public void getSignInInfo(){
+         String x = "nourddns";
+         System.out.println(x);
+        //System.out.println("heyy username "+this.getMy_username());
+       // return x;
+   }
+     
+     
+   
+ //     String y = this.getSignInInfo();
      }
     
     

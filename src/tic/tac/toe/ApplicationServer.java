@@ -84,7 +84,7 @@ public class ApplicationServer extends Application implements TicTacToeConstants
         start.setOnAction(new EventHandler <ActionEvent>(){
            public void handle(ActionEvent e){
                 new Thread(new Runnable(){
-                      public void run(){
+                   public void run(){
                         startServer();
                        }
                 }).start();

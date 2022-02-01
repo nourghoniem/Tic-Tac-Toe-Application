@@ -21,6 +21,7 @@ import java.util.List;
 public class DatabaseConnection {
     Connection conn;
     ArrayList<Players> players;
+    ArrayList<Players> viewPlayers;
     String username;
     String password;
     String status;
@@ -54,6 +55,27 @@ public class DatabaseConnection {
      }catch(SQLException e){e.getMessage();}
      return players;
    }
+    public List<Players> viewPlayers(String my_username){
+     viewPlayers = new ArrayList<Players>();
+     try{
+      Statement s = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+      String queryString = new String("select * from players where username != "+my_username+" ");
+      ResultSet rs = s.executeQuery(queryString);
+      while(rs.next()){
+      username = rs.getString("username");
+      password = rs.getString("password");
+      status = rs.getString("status");
+      score = rs.getString("score");
+      Players p = new Players(username, password, status, score);
+      viewPlayers.add(p);
+     }
+       s.close();
+       conn.commit();
+     }catch(SQLException e){e.getMessage();}
+     return viewPlayers;
+   }
+   
+   
    
    public void insertPlayer(Players p){
     try{ 
