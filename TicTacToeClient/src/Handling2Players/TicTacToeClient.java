@@ -35,10 +35,7 @@ public class TicTacToeClient extends Application implements TicTacToeConstants{
      private XO2PlayerController controller;
      public void start(Stage stage) throws Exception {
          
-//    Parent root = FXMLLoader.<Parent>load(getClass().getResource("/GamePage/GUI.fxml"));       
 
-      
-//    FXMLLoader loader = new FXMLLoader();
     loader = new FXMLLoader();
     loader.setLocation(Main.class.getResource("/TicTacToeClients/view/GUI.fxml"));
     Parent root = loader.load();
@@ -82,7 +79,7 @@ public class TicTacToeClient extends Application implements TicTacToeConstants{
                     
                     Platform.runLater(()->
                            controller.printStatus("player2 has joined, i start"));
-//                    myTurn = true;
+
                    controller.turn = true;
 
                  }
