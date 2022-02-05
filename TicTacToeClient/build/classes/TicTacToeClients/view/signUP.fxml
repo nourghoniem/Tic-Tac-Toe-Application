@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="933.0" style="-fx-background-color: DARKBLUE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TicTacToeClients.view.SceneController">
+   <center>
+      <AnchorPane prefHeight="321.0" prefWidth="813.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="62.0" layoutY="94.0" text="USERNAME" textFill="#ff2222">
+               <font>
+                  <Font name="Bank Gothic Medium BT" size="49.0" />
+               </font>
+            </Label>
+            <TextField fx:id="username" layoutX="439.0" layoutY="101.0" prefHeight="40.0" prefWidth="267.0" style="-fx-background-radius: 20;" AnchorPane.leftAnchor="439.0" AnchorPane.rightAnchor="107.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+               <font>
+                  <Font name="Bank Gothic Medium BT" size="15.0" />
+               </font>
+            </TextField>
+            <Label layoutX="61.0" layoutY="203.0" text="PASSWORD" textFill="#ff2323">
+               <font>
+                  <Font name="Bank Gothic Medium BT" size="49.0" />
+               </font>
+            </Label>
+            <TextField fx:id="password" layoutX="439.0" layoutY="210.0" prefHeight="40.0" prefWidth="395.0" style="-fx-background-radius: 20;" AnchorPane.leftAnchor="439.0" AnchorPane.rightAnchor="99.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+               <font>
+                  <Font name="Bank Gothic Medium BT" size="15.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="123.0" prefWidth="813.0" style="-fx-background-color: yellowe;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="190.0" layoutY="6.0" mnemonicParsing="false" prefHeight="112.0" prefWidth="433.0" style="-fx-background-color: DARKBLUE;" text="SIGN UP" textFill="#d70a0a" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="190.0">
+               <font>
+                  <Font name="Bank Gothic Medium BT" size="62.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="185.0" prefWidth="833.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="213.0" layoutY="14.0" mnemonicParsing="false" onAction="#checkIfPlayerExists" prefHeight="67.0" prefWidth="387.0" style="-fx-background-radius: 30;" text="confirm" AnchorPane.leftAnchor="229.0" AnchorPane.rightAnchor="228.0">
+               <font>
+                  <Font name="Bank Gothic Medium BT" size="37.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="212.0" layoutY="93.0" mnemonicParsing="false" onAction="#switchToSignIn" prefHeight="67.0" prefWidth="387.0" style="-fx-background-radius: 30;" text="back to home" AnchorPane.leftAnchor="229.0" AnchorPane.rightAnchor="228.0">
+               <font>
+                  <Font name="Bank Gothic Medium BT" size="37.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
