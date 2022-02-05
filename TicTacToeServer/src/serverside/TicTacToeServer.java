@@ -91,11 +91,11 @@ public class mainThreadForPlayers extends Thread {
                    while(true){
                        Socket player1 = serverSocket.accept();
                     
-                    new DataOutputStream(player1.getOutputStream()).writeInt(PLAYER1);
+                       new DataOutputStream(player1.getOutputStream()).writeInt(PLAYER1);
                     
-                    Socket player2 = serverSocket.accept();
+                       Socket player2 = serverSocket.accept();
 
-                    new DataOutputStream(player2.getOutputStream()).writeInt(PLAYER2);
+                       new DataOutputStream(player2.getOutputStream()).writeInt(PLAYER2);
 
                     new Thread(new PlayerHandler(player1,player2)).start();
 

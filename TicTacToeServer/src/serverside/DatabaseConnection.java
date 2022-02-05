@@ -85,6 +85,16 @@ public class DatabaseConnection {
      System.out.print(rows);
     }catch(SQLException e){e.getMessage();}
   }
+   
+  public void updateStatus(String username){
+    try{ 
+     PreparedStatement pst= conn.prepareStatement("update players set status = ? where username = '"+username+"'");
+     pst.setString(1, "Online");
+     int rows  = pst.executeUpdate();
+     pst.close();
+     System.out.print(rows);
+    }catch(SQLException e){e.getMessage();}
+ }
     
    public boolean checkIfExists(String r_username){
      try{

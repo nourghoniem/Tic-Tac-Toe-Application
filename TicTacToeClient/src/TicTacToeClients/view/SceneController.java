@@ -39,8 +39,7 @@ public class SceneController {
      
      DatabaseConnection data = new DatabaseConnection();
      List<Players> players = data.getPlayers();
-     List<String> getlogin = new ArrayList<String>();
-    
+ 
      @FXML
      private TextArea textplayer = new TextArea();
      @FXML
@@ -112,10 +111,10 @@ public class SceneController {
             System.out.println("Please enter your password"); 
          }
          if(data.checkIfPlayerExists(login_user, passwords)){
-            getlogin.add(login_user);
+          
             System.out.println("OKAYYY");
      
-        
+          data.updateStatus(login_user);
           root = FXMLLoader.load(getClass().getResource("viewPlayersInfo.fxml"));
           stage = (Stage)((Node)event.getSource()).getScene().getWindow();
           scene = new Scene(root);
