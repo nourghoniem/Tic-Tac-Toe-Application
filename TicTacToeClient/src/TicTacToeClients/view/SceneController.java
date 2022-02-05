@@ -7,6 +7,7 @@ package TicTacToeClients.view;
 import serverside.Players;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.application.Application;
@@ -36,9 +37,12 @@ public class SceneController {
      private Stage stage;
      private Scene scene;
      private Parent root;
-     private String my_username;
+     private static String login_user;
+     
+     
      DatabaseConnection data = new DatabaseConnection();
      List<Players> players = data.getPlayers();
+     List<String> getlogin = new ArrayList<String>();
     
      @FXML
      private TextArea textplayer = new TextArea();
@@ -55,14 +59,7 @@ public class SceneController {
      @FXML
      ObservableList<Players> players_data = FXCollections.observableArrayList();
 
-    public String getMy_username() {
-        return my_username;
-    }
-
-    public void setMy_username(String my_username) {
-        this.my_username = my_username;
-    }
-   
+    
     public void switchToSignUp(ActionEvent event) throws IOException{
        root = FXMLLoader.load(getClass().getResource("signUP.fxml"));
        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -107,16 +104,18 @@ public class SceneController {
          }
     }
     public void checkSignIn(ActionEvent event) throws IOException{
-         String usernames = username_in.getText();
+         //String usernames = username_in.getText();
+         login_user = username_in.getText();
          String passwords = password_in.getText();
-         this.setMy_username(usernames);
-         if(usernames.isEmpty()){
+          
+         if(login_user.isEmpty()){
             System.out.println("Please enter your username"); 
          }
          if(passwords.isEmpty()){
             System.out.println("Please enter your password"); 
          }
-         if(data.checkIfPlayerExists(usernames, passwords)){
+         if(data.checkIfPlayerExists(login_user, passwords)){
+            getlogin.add(login_user);
             System.out.println("OKAYYY");
      
         
@@ -129,15 +128,11 @@ public class SceneController {
          else{
             System.out.println("User does not exist"); 
           }
-           //System.out.println("hhbhbgv"+this.getMy_username());   
      }
-    public void getSignInInfo(){
-         String x = "nourddns";
-         System.out.println(x);
-        //System.out.println("heyy username "+this.getMy_username());
-       // return x;
-   }
-     
+     public String getlogin_user(){
+         return login_user;
+     }
+    
      
    
  //     String y = this.getSignInInfo();

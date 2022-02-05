@@ -25,7 +25,7 @@ import serverside.DatabaseConnection;
 
 public class ViewPlayersController implements Initializable {
     DatabaseConnection data = new DatabaseConnection();
-    List<Players> players = data.getPlayers();
+    
     SceneController s = new SceneController();
     String getssss;
      @FXML
@@ -37,10 +37,12 @@ public class ViewPlayersController implements Initializable {
      @FXML
      private TableColumn<Players, Void> invitecol;
      Button invite = new Button("Invite");
+     String m = s.getlogin_user();
+     List<Players> players = data.viewPlayers(m);
+      
      @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-       s.getSignInInfo();
        usernamecol.setCellValueFactory(new PropertyValueFactory<Players, String>("username"));
        statuscol.setCellValueFactory(new PropertyValueFactory<Players, String>("status"));
        invitecol.setCellValueFactory(new PropertyValueFactory<Players, Void>("invite"));

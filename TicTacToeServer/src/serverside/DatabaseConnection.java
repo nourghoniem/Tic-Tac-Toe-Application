@@ -58,7 +58,7 @@ public class DatabaseConnection {
      viewPlayers = new ArrayList<Players>();
      try{
       Statement s = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-      String queryString = new String("select * from players where username != "+my_username+" ");
+      String queryString = new String("select * from players where not (username = '"+my_username+"') ");
       ResultSet rs = s.executeQuery(queryString);
       while(rs.next()){
       username = rs.getString("username");
