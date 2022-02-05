@@ -97,7 +97,7 @@ public class mainThreadForPlayers extends Thread {
 
                     new DataOutputStream(player2.getOutputStream()).writeInt(PLAYER2);
 
-//                    new Thread(new HandleASession(player1,player2)).start();
+                    new Thread(new PlayerHandler(player1,player2)).start();
 
                     }
                }
