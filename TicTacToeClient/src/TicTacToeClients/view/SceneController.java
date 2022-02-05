@@ -116,7 +116,7 @@ public class SceneController {
             System.out.println("OKAYYY");
      
         
-          root = FXMLLoader.load(getClass().getResource("viewPlayers.fxml"));
+          root = FXMLLoader.load(getClass().getResource("viewPlayersInfo.fxml"));
           stage = (Stage)((Node)event.getSource()).getScene().getWindow();
           scene = new Scene(root);
           stage.setScene(scene);

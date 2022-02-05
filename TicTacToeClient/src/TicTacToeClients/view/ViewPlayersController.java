@@ -90,27 +90,4 @@ public class ViewPlayersController implements Initializable {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
