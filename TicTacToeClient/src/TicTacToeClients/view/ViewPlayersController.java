@@ -4,7 +4,7 @@
  */
 package TicTacToeClients.view;
 
-import TicTacToeClients.Players;
+import serverside.Players;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -20,7 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
-import tic.tac.toe.DatabaseConnection;
+import serverside.DatabaseConnection;
 
 
 public class ViewPlayersController implements Initializable {

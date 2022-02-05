@@ -4,7 +4,7 @@
  */
 package TicTacToeClients.view;
 
-import TicTacToeClients.Players;
+import serverside.Players;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -26,7 +26,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import tic.tac.toe.DatabaseConnection;
+import serverside.DatabaseConnection;
 
 /**
  *
