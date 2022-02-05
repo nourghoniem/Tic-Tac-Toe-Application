@@ -13,10 +13,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author nghon
- */
 public class DatabaseConnection {
     Connection conn;
     ArrayList<Players> players;
